@@ -1,0 +1,12 @@
+<h1>Todo liste Fullført og Ikke fullført sortert</h1>
+
+<ul>
+  <li *ngFor="let todo of todos" [ngClass]="{'completed-task': -todo.completed, 'uncompleted-task': !todo.completed}">
+    {{ "Todo - "+todo.todo }}
+
+    <div class="todo-button">
+      <button *ngIf="!todo.completed" (click)="markAsCompleted(todo)" ngClass="completed">Fullfør</button>
+      <button *ngIf="-todo.completed" (click)="markAsunCompleted(todo)" ngClass="uncompleted">Ufullfør</button>
+    </div>
+  </li>
+</ul>
